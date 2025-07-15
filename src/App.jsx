@@ -15,7 +15,6 @@ function App() {
               }}
             >
               <div class="mb-3">
-                {""}
                 <input
                   id="name"
                   type="text"
@@ -37,7 +36,11 @@ function App() {
                 className="btn btn-sm btn-primary"
                 onClick={() => {
                   setEmail(myemail.value);
-                  setDisplay(false);
+                  if (myemail.value === "" || name.value === "") {
+                    null;
+                  } else {
+                    setDisplay(false);
+                  }
                 }}
               >
                 Subscribe
@@ -51,11 +54,7 @@ function App() {
     return (
       <>
         <div className="container mt-5">
-          <div
-            class="alert alert-success"
-            role="alert"
-            style={{ display: "block" }}
-          >
+          <div class="alert alert-success" role="alert">
             Please check your email ({email}) for confirmation.
           </div>
           <a
